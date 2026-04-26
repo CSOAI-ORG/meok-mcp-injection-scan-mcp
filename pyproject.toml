@@ -24,3 +24,6 @@ only-include = ["server.py"]
 
 [project.scripts]
 meok-mcp-injection-scan-mcp = "server:main"
+
+[tool.mcp]
+mcpName = "io.github.CSOAI-ORG/meok-mcp-injection-scan-mcp"

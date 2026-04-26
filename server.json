@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.CSOAI-ORG/meok-mcp-injection-scan-mcp",
+  "description": "MCP injection-scanner with 30+ canonical detection rules — by MEOK AI Labs. Ships with HMAC-signed compliance attestations verifiable via meok-attestation-api.",
+  "status": "active",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/CSOAI-ORG/meok-mcp-injection-scan-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://meok.ai",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "meok-mcp-injection-scan-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
