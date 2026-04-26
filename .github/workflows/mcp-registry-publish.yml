@@ -1,0 +1,54 @@
+name: Publish to Official MCP Registry
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  id-token: write  # required for OIDC trust to MCP Registry
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip build twine
+
+      - name: Build PyPI wheel + sdist
+        run: python -m build
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: twine upload dist/* --skip-existing
+
+      - name: Install mcp-publisher CLI
+        run: |
+          curl -L "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s)_$(uname -m).tar.gz" \
+            | tar -xz mcp-publisher
+          chmod +x mcp-publisher
+          ./mcp-publisher --version
+
+      - name: Login to MCP Registry via GitHub OIDC
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish to Official MCP Registry
+        run: ./mcp-publisher publish
+
+      - name: Verify publication
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+          curl -s "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.CSOAI-ORG/${REPO_NAME}" \
+            | python -c "import sys, json; d=json.load(sys.stdin); print(f'Found {len(d.get(\"servers\", []))} matching server(s)')"
