@@ -1,0 +1,10 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "meok-mcp-injection-scan",
+  "description": "MCP injection-scanner — 30+ canonical detection rules — by MEOK AI Labs (https://meok.ai). Ships with HMAC-signed compliance attestations.",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/meok-mcp-injection-scan-mcp",
+  "license": "MIT",
+  "author": "MEOK AI Labs",
+  "tags": ["compliance", "eu-ai-act", "mcp", "governance", "signed-attestation", "meok-ai-labs"]
+}

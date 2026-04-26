@@ -1,0 +1,16 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      MEOK_API_KEY:
+        type: string
+        title: "MEOK Attestation API Key (optional)"
+        description: "Used for premium tier signed attestations. Leave blank for free tier."
+    required: []
+  commandFunction: |-
+    (config) => ({
+      command: 'python',
+      args: ['-m', 'meok-mcp-injection-scan'],
+      env: { MEOK_API_KEY: config.MEOK_API_KEY || '' }
+    })
