@@ -1,5 +1,10 @@
 # meok-mcp-injection-scan-mcp
 
+[![PyPI version](https://img.shields.io/pypi/v/meok-mcp-injection-scan-mcp)](https://pypi.org/project/meok-mcp-injection-scan-mcp/)
+[![PyPI downloads](https://img.shields.io/pypi/dw/meok-mcp-injection-scan-mcp)](https://pypistats.org/packages/meok-mcp-injection-scan-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
+
 **Scan any MCP server for the prompt-injection / tool-poisoning / SSRF class disclosed in the April 2026 CVE wave.**
 
 ```
