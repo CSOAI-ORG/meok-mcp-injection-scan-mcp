@@ -1,3 +1,7 @@
+[![meok-mcp-injection-scan-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/meok-mcp-injection-scan-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/meok-mcp-injection-scan-mcp)
+[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
+[![PyPI](https://img.shields.io/pypi/v/meok-mcp-injection-scan-mcp)](https://pypi.org/project/meok-mcp-injection-scan-mcp/)
+
 [![meok-mcp-injection-scan-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/meok-mcp-injection-scan-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/meok-mcp-injection-scan-mcp)
 
 # meok-mcp-injection-scan-mcp
