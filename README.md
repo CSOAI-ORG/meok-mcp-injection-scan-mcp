@@ -67,3 +67,4 @@ Solo founder. London. 234 MCP packages on PyPI. Live signing infrastructure at `
 - **Apify Store** (Pay-Per-Event): https://apify.com/knowing_yucca/meok-mcp-injection-scan
 - **GitHub** (source): https://github.com/CSOAI-ORG/MEOK-LABS/tree/main/mcps/meok-mcp-injection-scan-mcp
 - **Sponsor**: https://github.com/sponsors/CSOAI-ORG · [Pro £79/mo →](https://buy.stripe.com/eVq9AV4O87sudMF42k8k839)
+<!-- mcp-name: io.github.CSOAI-ORG/meok-mcp-injection-scan-mcp -->
