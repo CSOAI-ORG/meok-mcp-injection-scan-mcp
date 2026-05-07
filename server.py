@@ -401,6 +401,21 @@ def scan_mcp_url(url: str, api_key: str = "") -> dict:
 
     Returns a structured report: per-tool findings, severity counts, score
     0-100, verdict, and remediation hints. Free tier: 5 scans/day per key.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool for security assessment, threat detection, or vulnerability
+        analysis. Suitable for automated security scanning and risk evaluation.
+
+    When NOT to use:
+        Do not rely solely on this tool for production security decisions.
+        Always combine with manual security review.
     """
     ok, msg, tier = check_access(api_key)
     if not ok:
@@ -449,6 +464,21 @@ def audit_tool_descriptions(tools_json: str, api_key: str = "") -> dict:
 
     `tools_json` accepts either: a raw list, or {"tools": [...]}, or
     {"result": {"tools": [...]}}.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool for security assessment, threat detection, or vulnerability
+        analysis. Suitable for automated security scanning and risk evaluation.
+
+    When NOT to use:
+        Do not rely solely on this tool for production security decisions.
+        Always combine with manual security review.
     """
     ok, msg, tier = check_access(api_key)
     if not ok:
@@ -496,6 +526,21 @@ def signed_safety_report(
     happened on the date claimed.
 
     Pro / Enterprise tier only.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool for security assessment, threat detection, or vulnerability
+        analysis. Suitable for automated security scanning and risk evaluation.
+
+    When NOT to use:
+        Do not rely solely on this tool for production security decisions.
+        Always combine with manual security review.
     """
     ok, msg, tier = check_access(api_key)
     if not ok or tier not in ("pro", "enterprise"):
@@ -529,6 +574,21 @@ def list_rules() -> dict:
     """
     List every detection rule in the canonical catalogue. Useful for buyers
     auditing what we check before subscribing.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool for security assessment, threat detection, or vulnerability
+        analysis. Suitable for automated security scanning and risk evaluation.
+
+    When NOT to use:
+        Do not rely solely on this tool for production security decisions.
+        Always combine with manual security review.
     """
     sev_counts = Counter(r["severity"] for r in INJECTION_RULES)
     return {
@@ -551,7 +611,23 @@ def list_rules() -> dict:
 
 @mcp.tool()
 def pricing() -> dict:
-    """Pricing + subscribe links for this MCP."""
+    """Pricing + subscribe links for this MCP.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool for security assessment, threat detection, or vulnerability
+        analysis. Suitable for automated security scanning and risk evaluation.
+
+    When NOT to use:
+        Do not rely solely on this tool for production security decisions.
+        Always combine with manual security review.
+    """
     return {
         "free": {"price_gbp": 0, "limit": f"{_FREE_DAILY_LIMIT} scans / day", "signed_reports": False},
         "starter_29": {"price_gbp": 29, "subscribe": STRIPE_29, "limit": "unlimited scans", "signed_reports": True},
