@@ -416,6 +416,11 @@ def scan_mcp_url(url: str, api_key: str = "") -> dict:
     When NOT to use:
         Do not rely solely on this tool for production security decisions.
         Always combine with manual security review.
+
+    Args:
+        url (str): The url to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -493,7 +498,11 @@ def audit_tool_descriptions(tools_json: str, api_key: str = "") -> dict:
     When NOT to use:
         Do not rely solely on this tool for production security decisions.
         Always combine with manual security review.
-    """
+    
+
+    Args:
+        tools_json (str): The tools json to analyze or process.
+        api_key (str): The api key to analyze or process."""
     ok, msg, tier = check_access(api_key)
     if not ok:
         return {"error": msg, "upgrade": STRIPE_79}
@@ -555,6 +564,14 @@ def signed_safety_report(
     When NOT to use:
         Do not rely solely on this tool for production security decisions.
         Always combine with manual security review.
+
+    Args:
+        subject (str): The subject to analyze or process.
+        findings_json (str): The findings json to analyze or process.
+        score (int): The score to analyze or process.
+        note (str): The note to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
