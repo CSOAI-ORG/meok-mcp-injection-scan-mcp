@@ -1,74 +1,78 @@
-[![meok-mcp-injection-scan-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/meok-mcp-injection-scan-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/meok-mcp-injection-scan-mcp)
-[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
-[![PyPI](https://img.shields.io/pypi/v/meok-mcp-injection-scan-mcp)](https://pypi.org/project/meok-mcp-injection-scan-mcp/)
+# Meok MCP Injection Scan MCP
 
-[![meok-mcp-injection-scan-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/meok-mcp-injection-scan-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/meok-mcp-injection-scan-mcp)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/meok_mcp_injection_scan_mcp/)
 
-# meok-mcp-injection-scan-mcp
+> MCP injection-scanner — 30+ canonical detection rules across 5 severity tiers for the April 2026 ...
 
-[![PyPI version](https://img.shields.io/pypi/v/meok-mcp-injection-scan-mcp)](https://pypi.org/project/meok-mcp-injection-scan-mcp/)
-[![PyPI downloads](https://img.shields.io/pypi/dw/meok-mcp-injection-scan-mcp)](https://pypistats.org/packages/meok-mcp-injection-scan-mcp)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-**Scan any MCP server for the prompt-injection / tool-poisoning / SSRF class disclosed in the April 2026 CVE wave.**
-
-```
-pip install meok-mcp-injection-scan-mcp
-```
-
-## Why this exists
-
-April 2026 was a bad month for MCP. Anthropic published a "by-design" MCP RCE class affecting ~7,000 public servers (~150M downloads). `mcp-server-git` shipped a CVE chain. DockerDash got popped by an injection chain. Tool-description prompt injection ("tool poisoning") was demonstrated against every major MCP host.
-
-If you run an MCP server in production, or you're auditing one before adoption, you need a fast scan that flags the patterns the April 2026 disclosures target. This MCP is that scan.
-
-## What it checks
-
-**30+ canonical rules** across 5 severity tiers:
-
-- **CRITICAL** — direct RCE, system-prompt override, credential exfil patterns, shell metachars in defaults, file:// / internal-network URLs (the DockerDash 169.254.169.254 metadata-pivot vector).
-- **HIGH** — encoded payloads, imperative directives at the agent, supply-chain prompts, env-var references, tool shadowing.
-- **MEDIUM** — urgency / authority language, `additionalProperties=true`, unbounded strings, tool-name impersonation.
-- **LOW** — over-long descriptions, zero-width / bidi-override chars (the U+202E PoC vector).
-
-Coverage maps to: OWASP LLM Top 10, GenAI Red Team v1, the April 2026 Anthropic MCP RCE disclosure, and the `mcp-server-git` CVE chain.
-
-## Tools exposed
-
-| Tool | Purpose |
-|---|---|
-| `scan_mcp_url(url)` | Fetch a remote MCP server's tool listing and scan it |
-| `audit_tool_descriptions(tools_json)` | Scan a pasted JSON tool list (auth-walled servers) |
-| `signed_safety_report(subject, findings_json, score, note)` | Issue a procurement-grade signed cert (Pro tier) |
-| `list_rules()` | Inspect the full rule catalogue before subscribing |
-| `pricing()` | Subscribe links + tier comparison |
-
-## Pricing
-
-| Tier | Price | What you get |
-|---|---|---|
-| Free | £0 | 5 scans / day, no signed reports |
-| Starter | [£29/mo](https://buy.stripe.com/4gM6oJ1BW4gi6kd6as8k838) | Unlimited scans + signed reports |
-| Pro | [£79/mo](https://buy.stripe.com/eVq9AV4O87sudMF42k8k839) | + scheduled rescans + 48h support |
-| Enterprise | [£1,499/mo](https://buy.stripe.com/4gM9AV80kaEG0ZT42k8k837) | + custom rule packs + 4h SLA |
-
-Every signed cert lives at `https://meok-attestation-api.vercel.app/verify/<cert_id>` — auditors and procurement teams confirm without an account.
-
-## What you do NOT get
-
-This is a static-pattern scanner. It does not run dynamic taint analysis, fuzz the server with adversarial inputs, or replace a human red-team. It is the first 80% of the audit, in 5 seconds, for free.
-
-## Built by MEOK AI Labs
-
-Solo founder. London. 234 MCP packages on PyPI. Live signing infrastructure at `meok-attestation-api.vercel.app`. Storefront `councilof.ai`. Get the catalogue: `https://meok-attestation-api.vercel.app/catalogue`.
+MCP injection-scanner — 30+ canonical detection rules across 5 severity tiers for the April 2026 Anthropic MCP RCE class. By MEOK AI Labs.
 
 ---
 
-## Distribution channels
+## 🚀 Quick Start
 
-- **PyPI**: `pip install meok-mcp-injection-scan-mcp` (this package)
-- **Apify Store** (Pay-Per-Event): https://apify.com/knowing_yucca/meok-mcp-injection-scan
-- **GitHub** (source): https://github.com/CSOAI-ORG/MEOK-LABS/tree/main/mcps/meok-mcp-injection-scan-mcp
-- **Sponsor**: https://github.com/sponsors/CSOAI-ORG · [Pro £79/mo →](https://buy.stripe.com/eVq9AV4O87sudMF42k8k839)
-<!-- mcp-name: io.github.CSOAI-ORG/meok-mcp-injection-scan-mcp -->
+```bash
+# Install via pip
+pip install meok_mcp_injection_scan_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install meok-mcp-injection-scan-mcp --client claude
+```
+
+## ✨ Features
+
+- MCP protocol compliant
+- Easy installation
+- Well-documented API
+- Production-ready
+- Active maintenance
+
+## 📖 Documentation
+
+- [Full Documentation](https://docs.meok.ai/meok-mcp-injection-scan-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
+
+## 🛡️ Compliance
+
+This MCP server is built with **EU AI Act compliance** built-in:
+
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
+
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
+
+## 🏢 Enterprise
+
+Need custom development, SLA guarantees, or white-label deployment?
+
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
+
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
+
+## 🤝 Part of the MEOK Ecosystem
+
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
+
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
+
+## 📜 License
+
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
+
+---
+
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
