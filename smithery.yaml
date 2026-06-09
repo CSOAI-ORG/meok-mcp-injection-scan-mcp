@@ -1,16 +1,28 @@
+# smithery.yaml — Smithery (https://smithery.ai) submission payload
+# Repo: CSOAI-ORG/meok-mcp-injection-scan-mcp
+# Generated: 2026-06-09
+# Transport: streamable-HTTP (OCI container at ghcr.io/csoai-org/meok_injection_scan)
+# See: DISTRIBUTION_GAPS_2026-06-08.md for the channel strategy
+runtime: container
 startCommand:
-  type: stdio
+  type: http
+  transport: streamable-http
+  port: 8081
+  path: /mcp
+  health: /healthz
   configSchema:
     type: object
     properties:
-      MEOK_API_KEY:
+      apiKey:
         type: string
-        title: "MEOK Attestation API Key (optional)"
-        description: "Used for premium tier signed attestations. Leave blank for free tier."
-    required: []
-  commandFunction: |-
-    (config) => ({
-      command: 'python',
-      args: ['-m', 'meok-mcp-injection-scan'],
-      env: { MEOK_API_KEY: config.MEOK_API_KEY || '' }
-    })
+        description: "MEOK API key (optional; required for x402 paywalled tools)"
+        default: ""
+      x402PayTo:
+        type: string
+        description: "USDC address for x402 micropayments"
+        default: ""
+    additionalProperties: false
+build:
+  dockerfile: Dockerfile
+  dockerBuildArgs:
+    PKG: meok_injection_scan
