@@ -1,0 +1,9 @@
+{
+  "name": "meok-mcp-injection-scan-mcp",
+  "description": "Meok Mcp Injection Scan Mcp tools for AI agents. Built by MEOK AI Labs.",
+  "version": "1.0.0",
+  "tools": [
+    {"name": "check_compliance", "description": "Run a meok compliance check.", "parameters": {"type": "object", "properties": {"target": {"type": "string"}, "caller": {"type": "string"}}, "required": ["target"]}},
+    {"name": "audit_report", "description": "Generate a full meok audit report.", "parameters": {"type": "object", "properties": {"target": {"type": "string"}, "caller": {"type": "string"}}, "required": ["target"]}}
+  ]
+}
