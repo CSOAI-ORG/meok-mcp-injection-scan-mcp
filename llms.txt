@@ -1,38 +1,33 @@
 # meok-mcp-injection-scan-mcp
-> Meok Mcp Injection Scan Mcp tools for AI agents. Built by MEOK AI Labs.
+> Injection Scanner Prompt injection and jailbreak detection for MCP servers. By MEOK AI Labs.
 
 ## Install
-```bash
 pip install meok-mcp-injection-scan-mcp
-```
 
 ## Auth
-- Free tier: 5 calls/day per tool, no API key needed
+- Free tier: 100 calls/month, no API key needed
 - Pro tier: unlimited, set MEOK_API_KEY env var
-- All tools are read-only and stateless
 
 ## Tools
 
-### check_compliance
-Run a meok-mcp-injection-scan-mcp compliance check.
-- `target` (str, required): The system or dataset to check
-- Returns: pass/fail, with detailed analysis
-- Use when: Quick compliance check before deeper analysis
+### quick_scan
+Instant compliance check from a system description. No API key required.
+- `system` (str): One-sentence AI system description
+- Returns: compliance_status, top_obligations
 
-### audit_report
-Generate a full meok-mcp-injection-scan-mcp audit report.
-- `target` (str, required): The system or dataset to audit
-- Returns: full report, citations, recommended fixes
-- Use when: You need documentation for an external audit
+### deadline_check
+Regulatory deadlines with days remaining.
+- Returns: List of dates with days_remaining
 
-## Pricing
-- Free: 5 calls/day per tool
-- Pro: $99/mo (unlimited)
-- Enterprise: $499/mo (full audit + attestation)
+### framework_scan
+Detailed compliance assessment.
+- `framework` (str, required): MEOK or other framework
+- `system` (str, required): System description
+- Returns: compliance_score, gaps, remediation
 
-## Links
-- GitHub: https://github.com/CSOAI-ORG/meok-mcp-injection-scan-mcp
-- MEOK: https://meok.ai
-- CSOAI: https://csoai.org
+## Endpoints
+- MCP: https://gateway.meok.ai/mcp
+- A2A: https://gateway.meok.ai/.well-known/agent-card.json
 
-Built by Nick Templeman and the MEOK AI Labs team.
+## License
+MIT — https://github.com/CSOAI-ORG/meok-mcp-injection-scan-mcp/blob/main/LICENSE

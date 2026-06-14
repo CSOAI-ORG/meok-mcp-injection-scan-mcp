@@ -1,22 +1,83 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "CSOAI-ORG/meok-mcp-injection-scan-mcp",
-  "version": "1.0.0",
-  "description": "Mcp Injection Scan MCP Server by MEOK AI Labs",
+  "title": "Injection Scanner",
+  "version": "1.3.2",
+  "description": "Prompt injection and jailbreak detection for MCP servers. Part of the MEOK 28-hive MCP governance mesh. 13 unified frameworks + attestation chain.",
+  "websiteUrl": "https://meok.ai/meok-mcp-injection-scan-mcp",
   "repository": {
     "type": "git",
     "url": "https://github.com/CSOAI-ORG/meok-mcp-injection-scan-mcp",
     "source": "https://github.com/CSOAI-ORG/meok-mcp-injection-scan-mcp"
   },
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/CSOAI-ORG/meok-mcp-injection-scan-mcp/main/assets/icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "256x256"
+      ],
+      "theme": "dark"
+    }
+  ],
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "meok-mcp-injection-scan-mcp",
-      "version": "1.0.0",
-      "runtimeHint": "python",
+      "version": "1.3.2",
       "transport": {
         "type": "stdio"
       }
     }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "category": "ai-governance",
+      "subcategories": [
+        "compliance",
+        "audit"
+      ],
+      "tier": "flagship",
+      "openSsfScorecard": "7.06/10"
+    }
+  },
+  "metadata": {
+    "publisher": "MEOK AI Labs",
+    "categories": [
+      "compliance",
+      "ai-governance"
+    ]
+  },
+  "examples": [
+    {
+      "name": "Quick scan via meok-mcp-injection-scan-mcp",
+      "description": "Run a compliance check using the MCP server.",
+      "input": {
+        "tool": "quick_scan",
+        "arguments": {
+          "system": "example"
+        }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "https://docs.meok.ai/meok-mcp-injection-scan-mcp/",
+      "name": "meok-mcp-injection-scan-mcp documentation",
+      "mimeType": "text/html"
+    },
+    {
+      "uri": "https://github.com/CSOAI-ORG/meok-mcp-injection-scan-mcp",
+      "name": "meok-mcp-injection-scan-mcp on GitHub",
+      "mimeType": "text/html"
+    }
+  ],
+  "publisher": {
+    "name": "CSOAI Ltd",
+    "url": "https://csoai.org"
+  },
+  "categories": [
+    "compliance",
+    "ai-governance"
   ]
 }
